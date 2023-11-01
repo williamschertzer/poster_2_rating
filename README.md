@@ -4,6 +4,8 @@
 
 Got data from this kaggle link: https://www.kaggle.com/datasets/getaolga/moviepostersimdb?select=MovieGenre.csv
 
+If for whatever reason, you want to download the data for yourself, you'll probably have to re-save the csv as a csv with UTF-8 encoding (I used VScode to do this).
+
 Under the notebooks folder is where I did all my work. 
 
 First, we have 'Clean Data.ipynb' which just cleans the data by getting rid of NA's. You can find the final "data" folder to download in the google drive folder: https://drive.google.com/drive/folders/16M8kNRldFHNQaMcgfPebCLMAdMK01meY?usp=sharing
