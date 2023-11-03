@@ -2,8 +2,11 @@ import torch
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from torchvision.io import read_image
+from torchvision import transforms
+from torchvision.transforms import ToTensor
 import pandas as pd
 import os
+
 
 '''
 ############ EXAMPLE USAGE:
@@ -40,7 +43,9 @@ class PosterDataset(Dataset):
         
         self.df = pd.read_csv(csv_file)
         self.img_dir = img_dir
-        self.transform = transform
+        self.transform = transform if transform is not None else transforms.Compose([
+            transforms.Resize((256,256)),  # Resize images to 256/256
+        ])
         self.target_transform = target_transform
         
         if genres != None:
@@ -68,9 +73,8 @@ class PosterDataset(Dataset):
 
     def __getitem__(self, idx):
         img_path = self.img_dir + '/' + str(self.df.iloc[idx]['imdbId']) + '.jpg'
-        image = read_image(img_path)
+        image = read_image(img_path).to(torch.float)
         label = self.df.iloc[idx]['Score']
-        
         if self.transform:
             image = self.transform(image)
             
