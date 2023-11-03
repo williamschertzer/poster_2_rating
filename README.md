@@ -1,4 +1,5 @@
 # Poster2Rating
+[overleaf latex paper](https://www.overleaf.com/9544989412kszmvvmqvgdp#323e03)
 
 ## 10/31/23 Dataloading Update
 
