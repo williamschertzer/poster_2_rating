@@ -1,5 +1,6 @@
 # Poster2Rating
 [overleaf latex paper](https://www.overleaf.com/9544989412kszmvvmqvgdp#323e03)
+[presentation slide deck](https://docs.google.com/presentation/d/14YhTZdl2Qq6Ugt_u-0UglIgb3IvwMWfsI1KlNW0ZvKs/edit?usp=sharing)
 
 ## 10/31/23 Dataloading Update
 
