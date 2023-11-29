@@ -6,6 +6,7 @@ from torchvision import transforms
 from torchvision.transforms import ToTensor
 import pandas as pd
 import os
+import numpy as np
 
 
 '''
@@ -47,7 +48,7 @@ class PosterDataset(Dataset):
             transforms.Resize((256,256)),  # Resize images to 256/256
         ])
         self.target_transform = target_transform
-        
+        self.df = self.df[~np.isnan(self.df["Score"])]
         if genres != None:
             finalBool = 0
             
@@ -75,6 +76,8 @@ class PosterDataset(Dataset):
         img_path = self.img_dir + '/' + str(self.df.iloc[idx]['imdbId']) + '.jpg'
         image = read_image(img_path).to(torch.float)
         label = self.df.iloc[idx]['Score']
+        if np.isnan(label):
+            raise ArithmeticError(f"Img idx {idx} with imdbID {self.df.iloc[idx]['imdbId']} has invalid score")
         if self.transform:
             image = self.transform(image)
             
